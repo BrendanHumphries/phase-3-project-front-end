@@ -1,13 +1,34 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  border-style: solid;
+  padding: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.PlanesList {
+  border-style: solid;
+  padding: 10px;
+}
+
+.PlaneCard {
+  border-style: solid;
+  padding: 10px;
+}
+
+.PlaneInfo {
+  border-style: solid;
+  padding: 10px;
+}
+
+.PilotCard {
+  border-style: solid;
+  padding: 10px;
+}
+
+.SeatCard {
+  border-style: solid;
+  padding: 10px;
+}
+
+.CustomerForm {
+  border-style: solid;
+  padding: 10px;
 }
