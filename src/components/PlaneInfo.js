@@ -1,5 +1,6 @@
 import PilotCard from "./PilotCard";
 import SeatCard from "./SeatCard";
+import CustomerForm from "./CustomerForm";
 
 function PlaneInfo({planeToDisplay}) {
     return (
@@ -14,6 +15,7 @@ function PlaneInfo({planeToDisplay}) {
             <PilotCard name='Alejandro' />
             {/* For each seat of a plane, render a 'Seat Card', this is just filler data */}
             <h4>Customers:</h4>
+            <CustomerForm />
             <SeatCard number={1} name='Brice' />
             <SeatCard number={2} name='Peter' />
             <SeatCard number={3} name='Amy' />
