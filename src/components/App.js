@@ -8,11 +8,10 @@ function App() {
   const [planeToDisplay, setPlaneToDisplay] = useState('No plane yet');
 
   useEffect(() => {
-    setPlanesData(['This', 'is', 'a', 'card', 'for', 'each', 'plane']) // each string in this array represents a plane object
-    fetch('http://localhost:9292') //need the full path to get the planes
-    .then(resp => resp.json)
+    fetch('http://localhost:9292/planes')
+    .then(resp => resp.json())
     .then(data => {
-      console.log(data); // data will be an array of different planes;
+      setPlanesData(data);
     })
     .catch(error => console.log(`Here is your error: ${error}`))
   }, [])

@@ -5,7 +5,8 @@ function PlaneCard({plane, setPlaneToDisplay}) {
     
     return (
         <div className='PlaneCard' onClick={handleClick}>
-            <h3>{plane}</h3>
+            <h3>Flight number: {plane.plane_number}</h3>
+            <h4>Destination: {plane.destination}</h4>
         </div>
     )
 }
