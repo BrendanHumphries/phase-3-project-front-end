@@ -21,19 +21,23 @@ function PlaneInfo({planeToDisplay}) {
             <h2>Information about your flight:</h2>
             <h3>Flatiron Airways Flight: #{planeToDisplay.plane_number} to '{planeToDisplay.destination}'</h3>
             <h4>Pilots:</h4>
-            {planeToDisplay.pilots.map(pilot => {
-                return <PilotCard key={pilot.id} pilot={pilot} />
-            })}
+            <div className='pilots'>
+                {planeToDisplay.pilots.map(pilot => {
+                    return <PilotCard key={pilot.id} pilot={pilot} />
+                })}
+            </div>
             <h4>Customers:</h4>
             <CustomerForm planeToDisplay={planeToDisplay} setSeats={setSeats}/>
-            {seats.map(seat => {
-                console.log(seat)
-                if (seat.customer) {
-                    return <SeatCard key={seat.id} number={seat.seat_number} firstName={seat.customer.first_name} lastName={seat.customer.last_name} customerId={seat.customer_id} occupied={true} />
-                } else {
-                    return <SeatCard key={seat.id} number={seat.seat_number} occupied={false} />
-                }
-            })}
+            <div className='seats'>
+                {seats.map(seat => {
+                    console.log(seat)
+                    if (seat.customer) {
+                        return <SeatCard key={seat.id} number={seat.seat_number} firstName={seat.customer.first_name} lastName={seat.customer.last_name} customerId={seat.customer_id} occupied={true} />
+                    } else {
+                        return <SeatCard key={seat.id} number={seat.seat_number} occupied={false} />
+                    }
+                })}
+            </div>
         </div>
     )
 }
