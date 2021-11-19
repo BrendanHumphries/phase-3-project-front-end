@@ -1,6 +1,5 @@
 import { useState } from "react"
-function CustomerForm({planeToDisplay}) {
-   const [allCustomers, setAllCustomers] = useState([])
+function CustomerForm({planeToDisplay, setSeats}) {
     const [formData, setFormData] = useState(
 {
     "first_name": "",
@@ -33,9 +32,11 @@ function CustomerForm({planeToDisplay}) {
         }),
     })
     .then((r) => r.json())
-    .then(data => setAllCustomers([data, ...allCustomers]))
+    .then(data => {
+        setSeats(seats => [...seats, data]);
+    })
   }
-//   setAllCustomers([data, ...allCustomers]))
+
     return (
         <div className='CustomerForm'>
             <h3>Fill out this form to create a new customer and assign them a seat on this plane!</h3>
