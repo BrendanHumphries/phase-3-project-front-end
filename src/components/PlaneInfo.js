@@ -6,7 +6,6 @@ import { useEffect } from "react";
 
 function PlaneInfo({planeToDisplay}) {
     const [seats, setSeats] = useState([]);
-    const [pilots, setPilots] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:9292/seats')
@@ -22,18 +21,26 @@ function PlaneInfo({planeToDisplay}) {
             <h2>Information about your flight:</h2>
             <h3>Flatiron Airways Flight: #{planeToDisplay.plane_number} to '{planeToDisplay.destination}'</h3>
             <h4>Pilots:</h4>
-            {/* Need updated backend to make pilots work */}
+            <div className='pilots'>
+                {planeToDisplay.pilots.map(pilot => {
+                    return <PilotCard key={pilot.id} pilot={pilot} />
+                })}
+            </div>
             <h4>Customers:</h4>
-            <CustomerForm />
-            {seats.map(seat => {
-                if (seat.customer) {
-                    return <SeatCard key={seat.id} number={seat.seat_number} firstName={seat.customer.first_name} lastName={seat.customer.last_name} customerId={seat.customer_id} occupied={true} />
-                } else {
-                    return <SeatCard key={seat.id} number={seat.seat_number} occupied={false} />
-                }
-            })}
+            <CustomerForm planeToDisplay={planeToDisplay} setSeats={setSeats}/>
+            <div className='seats'>
+                {seats.map(seat => {
+                    console.log(seat)
+                    if (seat.customer) {
+                        return <SeatCard key={seat.id} number={seat.seat_number} firstName={seat.customer.first_name} lastName={seat.customer.last_name} customerId={seat.customer_id} occupied={true} />
+                    } else {
+                        return <SeatCard key={seat.id} number={seat.seat_number} occupied={false} />
+                    }
+                })}
+            </div>
         </div>
     )
 }
 
 export default PlaneInfo;
+//write a callback function down to customer form and then bring back up so customer data shows up here
