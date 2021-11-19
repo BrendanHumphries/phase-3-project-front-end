@@ -24,8 +24,9 @@ function PlaneInfo({planeToDisplay}) {
             <h4>Pilots:</h4>
             {/* Need updated backend to make pilots work */}
             <h4>Customers:</h4>
-            <CustomerForm />
+            <CustomerForm planeToDisplay={planeToDisplay}/>
             {seats.map(seat => {
+                console.log(seat)
                 if (seat.customer) {
                     return <SeatCard key={seat.id} number={seat.seat_number} firstName={seat.customer.first_name} lastName={seat.customer.last_name} customerId={seat.customer_id} occupied={true} />
                 } else {
@@ -37,3 +38,4 @@ function PlaneInfo({planeToDisplay}) {
 }
 
 export default PlaneInfo;
+//write a callback function down to customer form and then bring back up so customer data shows up here
